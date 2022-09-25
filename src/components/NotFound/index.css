@@ -1,0 +1,22 @@
+.not-found-image {
+  height: 50%;
+  width: 35%;
+}
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  height: 100vh;
+  justify-content: center;
+}
+
+.para {
+  text-align: center;
+}
+
+.heading {
+  color: white;
+  border: 2px solid red;
+}
