@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import {Redirect} from 'react-router-dom'
+
 import {Component} from 'react'
 import {GrShare} from 'react-icons/gr'
 import {AiFillStar, AiOutlineMail} from 'react-icons/ai'
@@ -10,58 +10,6 @@ import Header from '../Header'
 import './index.css'
 import SimilarJob from '../SimilarJob'
 import SkillItem from '../SkillItem'
-
-// const sampleJob = {
-//   companyLogoUrl:
-//     'https://assets.ccbp.in/frontend/react-js/jobby-app/netflix-img.png',
-//   companyWebsiteUrl: 'https://about.netflix.com/en',
-//   employmentType: 'Internship',
-//   id: 'bb95e51b-b1b2-4d97-bee4-1d5ec2b96751',
-//   jobDescription: 'description',
-//   lifeAtCompany: {
-//     description:
-//       'Our core philosophy is people over process. Our cu…us common ground. We want to entertain the world.',
-//     imageUrl:
-//       'https://assets.ccbp.in/frontend/react-js/jobby-app/life-netflix-img.png',
-//   },
-
-//   location: 'Delhi',
-//   packagePerAnnum: '10 LPA',
-//   rating: 4,
-//   skills: [
-//     {
-//       name: 'Docker',
-//       imageUrl:
-//         'https://assets.ccbp.in/frontend/react-js/jobby-app/docker-img.png',
-//     },
-//     {
-//       name: 'Kubernetes',
-//       imageUrl:
-//         'https://assets.ccbp.in/frontend/react-js/jobby-app/kubernetes-img.png',
-//     },
-//     {
-//       name: 'Terraform',
-//       imageUrl:
-//         'https://assets.ccbp.in/frontend/react-js/jobby-app/terraform-img.png',
-//     },
-//     {
-//       name: 'Jenkins',
-//       imageUrl:
-//         'https://assets.ccbp.in/frontend/react-js/jobby-app/jenkins-img.png',
-//     },
-//     {
-//       name: 'GO',
-//       imageUrl: 'https://assets.ccbp.in/frontend/react-js/jobby-app/go-img.png',
-//     },
-//     {
-//       name: 'Ansible',
-//       imageUrl:
-//         'https://assets.ccbp.in/frontend/react-js/jobby-app/ansible-img.png',
-//     },
-//   ],
-
-//   title: 'Devops Engineer',
-// }
 
 const jobDetailsConstants = {
   initial: 'INITIAL',
@@ -111,7 +59,7 @@ class JobItemDetails extends Component {
   }
 
   renderLoader = () => (
-    <div testid="loader">
+    <div /* testid="loader" */>
       <Loader type="TailSpin" color="#2f2f" height={50} width={50} />
     </div>
   )
@@ -129,65 +77,6 @@ class JobItemDetails extends Component {
     imageUrl: life.image_url,
   })
 
-  //    getSkillsList = formattedJobData => {
-  //     const lista = formattedJobData.skills
-  // //     console.log(formattedJobData.skills)
-  //    }
-
-  //     const item = lista.map(each => (
-  //       <li className="each-skill" key={each.id}>
-  //         <img src={each.imageUrl} alt={each.name} className="skill-image" />
-  //         <h1 className="skill-name">{each.name}</h1>
-  //       </li>
-  //     ))
-  //     return item
-  //   }
-
-  //   getJobContainer = each => {
-  //     const {
-  //       companyLogoUrl,
-  //       employmentType,
-  //       id,
-  //       location,
-  //       jobDescription,
-  //       rating,
-  //       title,
-  //     } = each
-
-  //     return (
-  //       <li className="simi-container" key={id}>
-  //         <div className="logo-title">
-  //           <img
-  //             src={companyLogoUrl}
-  //             alt="similar job company logo"
-  //             className="logo-image"
-  //           />
-  //           <div>
-  //             <h1 className="similar-title">{title}</h1>
-
-  //             <div className="rating-star">
-  //               <AiFillStar className="star" />
-  //               <p>{rating}</p>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <h1>Description</h1>
-  //         <p>{jobDescription}</p>
-  //         <div className="location-type">
-  //           <div className="row">
-  //             <HiLocationMarker className="location-icon" />
-  //             <p>{location}</p>
-  //           </div>
-
-  //           <div className="row">
-  //             <AiOutlineMail className="job-icon" />
-  //             <p className="employment-type">{employmentType}</p>
-  //           </div>
-  //         </div>
-  //       </li>
-  //     )
-  //   }
-
   getSimilarJobsList = similar => {
     console.log(similar)
     const formattedSimilardata = similar.map(eachItem => ({
@@ -199,8 +88,7 @@ class JobItemDetails extends Component {
       title: eachItem.title,
       jobDescription: eachItem.job_description,
     }))
-    //  console.log(formattedSimilardata)
-    // this.getJobContainer(eachItem))}
+
     return (
       <div>
         <ul className="similar-jobs-list">
@@ -306,12 +194,6 @@ class JobItemDetails extends Component {
       </>
     )
   }
-
-  //   onClickRetryJobDetails = () => {
-  //     const {history} = this.props
-  //     console.log('clicked')
-  //     return <Redirect component={JobItemDetails} />
-  //   }
 
   renderJobDetailsFailure = () => (
     <div className="JobDetails-failure-container">

@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import './index.css'
 import Cookies from 'js-cookie'
-import {Redirect} from 'react-router-dom'
+
 import {BsSearch} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
@@ -73,13 +73,7 @@ class Jobs extends Component {
   }
 
   getJobsData = async () => {
-    const {
-      employmentType,
-      minimumPackage,
-      searchInput,
-      jobsData,
-      jobfetchStatus,
-    } = this.state
+    const {employmentType, minimumPackage, searchInput} = this.state
     const token = Cookies.get('jwt_token')
     console.log('clicked')
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimumPackage}&search=${searchInput}`
@@ -151,7 +145,7 @@ class Jobs extends Component {
   })
 
   renderLoader = () => (
-    <div className="loader" testid="loader">
+    <div className="loader" /* testid="loader */>
       <Loader type="TailSpin" color="#2f2f2f" height={50} width={50} />
     </div>
   )
@@ -286,17 +280,12 @@ class Jobs extends Component {
             <button
               onClick={this.onClickSearchIcon}
               className="search-btn"
-              testid="searchButton"
+              // testid="searchButton"
               type="button"
             >
               <BsSearch className="search-icon" />
             </button>
-            {/* <BsSearch
-              className="search-icon"
-              onClick={this.onClickSearchIcon}
-            /> */}
           </div>
-          {}
         </div>
         {jobsData.length === 0 ? renderNoJobs() : renderList()}
       </div>
